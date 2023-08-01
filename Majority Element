@@ -1,0 +1,15 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        num_map = {}
+        n=len(nums)
+        for i in range(n) :
+            if nums[i] in num_map :
+                num_map[nums[i]] += 1
+            else :
+                num_map[nums[i]] = 1
+
+        for i in num_map :
+            if num_map.get(i) >= n/2 :
+                return(i)  
+
+Link to the question --> https://leetcode.com/problems/majority-element/
