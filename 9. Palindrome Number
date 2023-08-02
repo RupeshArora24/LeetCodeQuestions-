@@ -1,0 +1,15 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        a = f"{x}"
+        n=len(a)
+        i = 0
+        j=n-1
+        while i<j :
+            if x<0 or a[i]!=a[j]: return False
+           
+            i=i+1
+            j=j-1
+        return True      
+
+
+Question Link --> https://leetcode.com/problems/palindrome-number/description/
