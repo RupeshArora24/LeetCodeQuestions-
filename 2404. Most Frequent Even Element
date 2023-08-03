@@ -1,0 +1,32 @@
+Question Link --> https://leetcode.com/submissions/detail/1011277123/
+
+Code -->
+
+class Solution:
+    def mostFrequentEven(self, nums: List[int]) -> int:
+        s_map={}
+        ans=[]
+        
+        n = len(nums)
+        s=nums
+        for i in s :
+         if i in s_map:
+          if int(i)%2==0 :    
+            s_map[i]+= 1 
+         else:
+           if int(i)%2==0 : 
+             s_map[i]= 1 
+
+
+       
+        for i in s_map :
+              if s_map.get(i) == max(s_map.values()): 
+               ans.append(int(i)) 
+                 
+        ans.sort()
+        if len(ans)==0 :
+          return(-1)
+        else :  
+          return(ans[0])
+        
+              
