@@ -1,0 +1,9 @@
+Question Link -->
+https://leetcode.com/problems/determine-if-two-events-have-conflict/
+
+Code -->
+class Solution:
+    def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
+        
+        return(event1[1]>=event2[0] and event1[0]<=event2[1])
+        
