@@ -1,7 +1,7 @@
 Question Link --> 
 https://leetcode.com/problems/apply-operations-to-an-array/
 #palindrome code by teo pointers 
-Code -->
+Code1 -->
 
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
@@ -22,3 +22,21 @@ class Solution:
             else:
                 k+=1    
         return(arr)       
+
+Code 2-->
+class Solution:
+    def applyOperations(self, nums: List[int]) -> List[int]:
+        for i in range(len(nums)-1):
+                if nums[i]==nums[i+1]:
+                    nums[i]=nums[i]*2
+                    nums[i+1]=0
+        a=nums.count(0)
+        num=[]            
+        num.append(a)
+        for i in range(a):
+            nums.remove(0)
+        for i in range(a):
+            nums.append(0)
+        return(nums)   
+        
+               
