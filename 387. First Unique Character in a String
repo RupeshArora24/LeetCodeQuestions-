@@ -1,0 +1,12 @@
+Question -->
+https://leetcode.com/problems/first-unique-character-in-a-string/
+
+Code -->
+from collections import Counter
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+     arr1=Counter(s)
+     for i in arr1:
+         if arr1.get(i)==1:
+             return(s.index(i))
+     return -1
