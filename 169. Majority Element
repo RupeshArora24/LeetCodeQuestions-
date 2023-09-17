@@ -11,5 +11,5 @@ class Solution:
         for i in num_map :
             if num_map.get(i) >= n/2 :
                 return(i)  
-
+#hi
 Link to the question --> https://leetcode.com/problems/majority-element/
