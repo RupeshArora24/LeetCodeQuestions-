@@ -1,0 +1,27 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        result=[]
+        min_freq={}
+        for i in range(ord('a'),ord('z')+1):
+            min_freq[chr(i)]=float('inf')
+           
+        
+        for i in words:
+            word={} 
+            for j in i:    
+                if j in word:
+                    word[j]+=1
+                else:
+                    word[j]=1
+
+            for k in min_freq:
+              if k not in word:
+                 min_freq[k]=0
+              if k in word:   
+                 min_freq[k]=min(min_freq[k],word[k]) 
+               
+        for i in min_freq:
+            while min_freq[i]>0:
+                result.append(i)
+                min_freq[i]=min_freq[i]-1
+        return(result)                              
