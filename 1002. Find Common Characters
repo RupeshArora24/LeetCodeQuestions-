@@ -1,6 +1,6 @@
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
-        result=[]
+        result=[] 
         min_freq={}
         for i in range(ord('a'),ord('z')+1):
             min_freq[chr(i)]=float('inf')
