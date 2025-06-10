@@ -27,3 +27,4 @@ class Solution:
         return(method1(1,nums) or method1(-1,nums1))
     
                     
+   
