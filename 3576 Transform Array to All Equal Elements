@@ -1,0 +1,29 @@
+class Solution:
+    def canMakeEqual(self, nums: List[int], k: int) -> bool:
+        nums1=nums.copy()
+        def method1(change,nums):
+            def check(nums):
+                if (sum(nums)==len(nums)) or (sum(nums)==0-len(nums)):
+                    return True
+                else:
+                    pass
+                
+            operation = 0
+            
+            if check(nums) == True :
+                return True
+            
+            for i,j in enumerate(nums):
+                if j==change and operation<k and i<len(nums)-1:
+                    nums[i]=nums[i]*-1
+                    nums[i+1]=nums[i+1]*-1
+                    operation+=1
+                    
+            if check(nums) == True :
+                return True
+            
+            return(False)
+
+        return(method1(1,nums) or method1(-1,nums1))
+    
+                    
