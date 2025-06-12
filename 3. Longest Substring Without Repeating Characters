@@ -1,0 +1,78 @@
+Link --> 
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/?envType=problem-list-v2&envId=string
+
+Question --> 
+
+Given a string s, find the length of the longest substring without duplicate characters.
+
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+Example 3:
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+ 
+
+Constraints:
+
+0 <= s.length <= 5 * 104
+s consists of English letters, digits, symbols and spaces.
+
+Answer -->
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        i=0
+        e=0
+        ans=[]
+        ele=[]
+        while e<len(s):
+            if s[e] not in ele:
+                ele.append(s[e])
+                #print(ele,i,e," : In if condition"," element ",s[e])
+                e+=1
+            else:
+                ans.append(len(ele))
+                #print(ans,i,e," : In else condition")
+                ele=[]
+                i+=1
+                e=i
+                #print("after -i=e",i,e)
+            
+            if e==len(s) :
+                ans.append(len(ele))     
+            
+        #print(ans)  
+        if ans == [] :
+            return(len(ele))
+        return(max(ans))        
+
+Explanation --> 
+
+i have used the sliding window concept where i used the 2 pointers i and e. Where i is acting as the intial pointer and e is acting as the end pointer.And the process is simple currently both the pointers are at the
+same point in the while loop i applied the condition of less than the lenth of the stirng so that window will just be in the whole string.
+Then I started the pointer and check weather that element is exsiting in the list or not if it is not esxsisting then add it to the list and inc the pointer. If exsisting then go in else loop and add the lenth of the 
+list to the ans list and empties the ele list and make the inital pointer increase by 1 and e to be equal to the intial pointer.
+This will go on 
+
+Mistakes -> 
+1. if the pointer reached till last then there is no condtion to inser the lenth of the final substring made at last, because its logic was in the else loop. 
+
+For that i created a new if loop and given the 
+condition of equating it to length of string, and adding the lenth of the ele list to the ans list.
+
+2.And if the string is empty then what shuld it return, there was no condtion for it. So we need to return a 0 as the lenth is 0 for that, i have added this condition in last.
+
+3. One more mistake i made that i was simply equating e pointer to the i where as not changing the i pointer. Means i was just increasing e and when a element found which exsits in the ele list , simply equating i to that 
+position. Where as because of that the elements between that get left over. SO i solved that isssue by simply incrementing i by 1 and eqating e to i. With this
+the pointers will start to find the next substring from the next element insted of where the matching element was found.
